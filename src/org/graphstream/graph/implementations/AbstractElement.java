@@ -79,11 +79,13 @@ public abstract class AbstractElement implements Element {
 	/**
 	 * New element.
 	 * 
-	 * @param id
-	 *            The unique identifier of this element.
+	 * @param id The unique identifier of this element; cannot be <code>null</code>
 	 */
-	public AbstractElement(String id) {
-		assert id != null : "Graph elements cannot have a null identifier";
+	public AbstractElement(final String id) {
+		if ( null == id ) {
+			throw new IllegalArgumentException( "Graph elements cannot have a null identifier" );
+		}
+		
 		this.id = id;
 	}
 
